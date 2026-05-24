@@ -1,0 +1,16 @@
+# Frontend-only deploy (Netlify cannot run Express + MySQL).
+# If the Netlify UI still sets Build command / Publish directory, either
+# clear those fields (use this file) OR keep UI as:
+#   Build command: npm run build
+#   Publish directory: frontend/.next
+
+[build]
+  command = "npm run build"
+  publish = "frontend/.next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_CONFIG_PRODUCTION = "false"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
