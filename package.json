@@ -9,7 +9,9 @@
     "dev:backend": "npm run dev --prefix backend",
     "dev:frontend": "npm run dev --prefix frontend",
     "build": "npm install --prefix frontend && npm run build --prefix frontend",
-    "build:all": "npm run build --prefix backend && npm run build --prefix frontend",
+    "build:backend": "npm install --prefix backend && npm run build --prefix backend",
+    "build:all": "npm run build:backend && npm run build --prefix frontend",
+    "start:backend": "npm run start --prefix backend",
     "start": "concurrently -n backend,frontend -c blue,magenta \"npm run start --prefix backend\" \"npm run start --prefix frontend\"",
     "typecheck": "npm run typecheck --prefix backend && npm run typecheck --prefix frontend",
     "lint": "npm run lint --prefix frontend"
