@@ -1,0 +1,92 @@
+{
+  "title": "Job Application",
+  "description": "Apply for our open engineering role. We'll ask a few targeted questions based on your background.",
+  "status": "published",
+  "settings": {
+    "multiStep": true,
+    "showProgress": true,
+    "allowDraft": true
+  },
+  "questions": [
+    {
+      "id": "q_name",
+      "type": "text",
+      "label": "Full name",
+      "placeholder": "Jane Doe",
+      "required": true,
+      "validation": { "minLength": 2, "maxLength": 80 }
+    },
+    {
+      "id": "q_email",
+      "type": "email",
+      "label": "Email",
+      "required": true,
+      "validation": { "regex": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$" }
+    },
+    {
+      "id": "q_role",
+      "type": "select",
+      "label": "Role you're applying for",
+      "options": ["Frontend", "Backend", "Fullstack", "DevOps"],
+      "required": true
+    },
+    {
+      "id": "q_has_experience",
+      "type": "radio",
+      "label": "Do you have previous professional experience?",
+      "options": ["yes", "no"],
+      "required": true
+    },
+    {
+      "id": "q_years",
+      "type": "number",
+      "label": "How many years of experience?",
+      "validation": { "min": 0, "max": 40 },
+      "required": true,
+      "logic": [
+        {
+          "if": { "field": "q_has_experience", "op": "equals", "value": "no" },
+          "action": "jump_to",
+          "target": "q_portfolio"
+        }
+      ]
+    },
+    {
+      "id": "q_stack",
+      "type": "checkbox",
+      "label": "Which technologies have you used?",
+      "options": ["React", "Vue", "Angular", "Node.js", "Python", "Go", "Rust"],
+      "logic": [
+        {
+          "if": { "field": "q_role", "op": "equals", "value": "DevOps" },
+          "action": "jump_to",
+          "target": "q_cloud"
+        }
+      ]
+    },
+    {
+      "id": "q_cloud",
+      "type": "checkbox",
+      "label": "Which cloud providers have you worked with?",
+      "options": ["AWS", "GCP", "Azure", "DigitalOcean", "Other"]
+    },
+    {
+      "id": "q_portfolio",
+      "type": "text",
+      "label": "Portfolio / GitHub URL",
+      "placeholder": "https://github.com/..."
+    },
+    {
+      "id": "q_start",
+      "type": "date",
+      "label": "Earliest start date",
+      "required": true
+    },
+    {
+      "id": "q_notes",
+      "type": "textarea",
+      "label": "Anything else we should know?",
+      "validation": { "maxLength": 2000 }
+    }
+  ]
+}

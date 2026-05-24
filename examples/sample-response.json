@@ -1,0 +1,15 @@
+{
+  "formId": "<form id>",
+  "status": "submitted",
+  "answers": [
+    { "qid": "q_name", "value": "Jane Doe" },
+    { "qid": "q_email", "value": "jane@example.com" },
+    { "qid": "q_role", "value": "Fullstack" },
+    { "qid": "q_has_experience", "value": "yes" },
+    { "qid": "q_years", "value": 4 },
+    { "qid": "q_stack", "value": ["React", "Node.js"] },
+    { "qid": "q_portfolio", "value": "https://github.com/janedoe" },
+    { "qid": "q_start", "value": "2026-05-15" },
+    { "qid": "q_notes", "value": "Excited to apply!" }
+  ]
+}
